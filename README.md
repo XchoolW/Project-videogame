@@ -34,7 +34,7 @@ This project was designed to showcase the implementation of fundamental software
 1. Clone the repository:
 
     ```bash
-    git clone [https://github.com/XchoolW/Project-videogame.git](https://github.com/XchoolW/Project-videogame.git)
+    git clone https://github.com/XchoolW/Project-videogame.git
     ```
 
 2. Navigate to the project directory:
