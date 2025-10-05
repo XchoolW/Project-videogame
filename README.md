@@ -50,10 +50,11 @@ This project was designed to showcase the implementation of fundamental software
     source .venv/bin/activate
     ```
 
-4. Install the required libraries:
+4. Install the required libraries from the `requirements.txt` file:
 
     ```bash
-    pip install pygame
+    pip install -r requirements.txt
+
     ```
 
 #### Running the Game
