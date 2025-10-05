@@ -131,7 +131,7 @@ class About():
         self.show_content(content, font_content, y_offset)
 
         ################# Add a link ###############
-        link_title = 'My LinkedIn link, just to add something'
+        link_title = 'My LinkedIn link'
         link_font = pygame.font.Font(None, 36)
         link_width = link_font.size(link_title)[0]
 
@@ -167,4 +167,4 @@ class About():
                         # Using webbrowser to open the link
                         elif 200 <= x <= self.WIDTH-200 and 300 <= y < 520:
                             webbrowser.open(
-                                'https://www.linkedin.com/in/bruno-delgado-39b440258https://www.google.com')
+                                'https://www.linkedin.com/in/bruno-delgado-15301a388')

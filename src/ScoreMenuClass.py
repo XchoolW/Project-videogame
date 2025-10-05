@@ -47,7 +47,7 @@ class Score():
     # Method to load the image with the scores
     def load_image(self, filename):
 
-        path = os.path.join('src/img', filename)
+        path = os.path.join('./img', filename)
         return pygame.image.load(path).convert_alpha()
 
     # Showing the text of the scores
