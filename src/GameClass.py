@@ -8,8 +8,7 @@ current_dir = os.path.dirname(__file__)
 BULLET_IMAGE = pygame.image.load(os.path.join(
     current_dir, 'img', 'bullet_image.png'))
 
-# Creating the class that will control the game
-
+# Building the class that will control the game -------------------------------------
 
 class Game():
 
@@ -28,7 +27,7 @@ class Game():
         self.bullet_img = BULLET_IMAGE
         self.health = health
 
-        # Max punctuation
+        # Max score 
         logs = self.read_logs('scores.txt')
         if len(logs) > 0:
             self.player, self.max_score = logs[0]
@@ -67,6 +66,7 @@ class Game():
             # Return False because we have not lost
             return False
 
+    # Method to draw the HUD 
     def draw_HUD(self):
         # Distance between the bullets
         offset = 0
@@ -81,7 +81,8 @@ class Game():
         health_label = self.font.render(
             f'Health: {self.health}', 1, (255, 160, 160))
 
-        x = (self.WIDTH-level_label.get_width()-10)  # Same technique as before
+        # This give us the exact size
+        x = (self.WIDTH-level_label.get_width()-10)
         y = 10
 
         # Drawing on the screen
@@ -96,6 +97,7 @@ class Game():
                 self.bullet_img, (self.WIDTH-offset, self.HEIGHT-50)
             )
 
+    # Method to reload
     def reload_bullet(self, bullet):
         self.bullets = bullet
 
@@ -107,7 +109,7 @@ class Game():
             else:
                 return False
 
-    # Reading the information for the scores
+    # Reading socores information 
     def read_logs(self, filename):
         logs = []
 

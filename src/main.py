@@ -17,7 +17,8 @@ from GiftClass import Gift
 # Getting the current directory
 current_dir = os.path.dirname(__file__)
 
-# Constants for the game
+# Constants for the game ---------------------------------------------
+
 BACKGROUND = pygame.image.load(os.path.join(
     current_dir, 'img', 'background.png'))
 ICON_IMAGE = pygame.image.load(os.path.join(
@@ -37,16 +38,14 @@ pygame.display.set_icon(ICON_IMAGE)
 # Init pygame
 pygame.init()
 
-# Loading the background music
+# Loading the background music and handling the errors -------------
 try:
-    mixer.music.load('src/sounds/background_song.mp3')
+    mixer.music.load('./sounds/background_song.mp3')
 except:
     print('Sound could no be displayed')
     pass
 
-# Place where all the functional code will be
-
-
+# Main function ------------------------------------------------------
 def main():
     run = True
     clock = pygame.time.Clock()
@@ -61,6 +60,7 @@ def main():
     except:
         pass
 
+    # Setting the font
     font = pygame.font.SysFont('comicsans', 30)
 
     # Creating the player and its coordinates
@@ -90,7 +90,7 @@ def main():
         if game.over():
             if score > game.max_score:
 
-                sound = pygame.mixer.Sound('src/sounds/win.mp3')
+                sound = pygame.mixer.Sound('./sounds/win.mp3')
                 sound.play()
                 screen = ScreenName(score, main)
 
@@ -161,8 +161,8 @@ def main():
             enemy.move()
 
             # Loading sounds for the game
-            crash_sound = pygame.mixer.Sound('src/sounds/crash.wav')
-            shout_sound = pygame.mixer.Sound("src/sounds/explosion.wav")
+            crash_sound = pygame.mixer.Sound('./sounds/crash.wav')
+            shout_sound = pygame.mixer.Sound('./sounds/explosion.wav')
 
             # Player hit the enemy
             if player.hit(enemy):
@@ -193,7 +193,7 @@ def main():
 
         draw.drawing(game, player, enemies, gifts, FPS, score)
 
-
+# Executing the instances
 def initGame():
     main()
 

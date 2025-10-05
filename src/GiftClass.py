@@ -1,15 +1,15 @@
 import pygame
 import random
-from ShipClass import Ship
+#from ShipClass import Ship
 
 WIDTH = 800
 HEIGHT = 600
 
 # List of possible gift images (images are loaded once at the beginning)
 GIFT_IMAGES = [
-    pygame.image.load('src/img/shot_purple.png'),
-    pygame.image.load('src/img/shot_green.png'),
-    pygame.image.load('src/img/shot_blue.png')
+    pygame.image.load('./img/shot_purple.png'),
+    pygame.image.load('./img/shot_green.png'),
+    pygame.image.load('./img/shot_blue.png')
 ]
 
 # Class for the gifts

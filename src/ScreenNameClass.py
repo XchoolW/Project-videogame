@@ -3,6 +3,7 @@ import sys
 import os
 
 
+# A class to build the screen
 class ScreenName():
 
     # Constants for colors
@@ -127,7 +128,7 @@ class ScreenName():
     # Loading image
     def load_img(self, filename):
 
-        path = 'src/img/' + filename
+        path = './img/' + filename
         return pygame.transform.scale(pygame.image.load(path).convert(), (self.WIDTH, self.HEIGHT))
 
     # Writing in the file
@@ -153,5 +154,5 @@ class ScreenName():
         except Exception as e:
             print(f'Error at creating or write in file: {e}')
 
-    def finish():
+    def finish(self):
         print("finished")

@@ -1,8 +1,10 @@
 import pygame
 import os
 
-
+# Getting the current directory
 current_dir = os.path.dirname(__file__)
+
+# Setting the Background, width and height
 BACKGROUND = pygame.image.load(os.path.join(
     current_dir, 'img', 'background.png'))
 
@@ -10,14 +12,15 @@ WIDTH, HEIGHT = 800, 600
 
 # Drawing class
 
+class Drawing():
 
-class Drawing:
-
+    # Constructor
     def __init__(self, window):
         self.window = window
         self.font = pygame.font.SysFont('comicsans', 50)
 
-    def drawing(self, game, player, enemies, gifts, FPS, score):
+    # Drawing method
+    def drawing(self, game, player, enemies, gifts, FPS, score): #FPS method was removed
         self.window.blit(BACKGROUND, (0, 0))
         player.fire(self.window)
 
@@ -27,9 +30,10 @@ class Drawing:
 
         for enemy in enemies[:]:  # This generate a copy of the list
             enemy.draw(self.window)
+
         player.draw(self.window)
 
-        # Drawing the HUD
+        # Drawing the HUD and updating the screen
         game.draw_HUD()
         pygame.display.update()
 

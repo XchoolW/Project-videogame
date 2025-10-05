@@ -5,7 +5,6 @@ import webbrowser
 
 # Class for the menu about, in the main menu
 
-
 class About():
 
     # Constants for colors
@@ -22,12 +21,14 @@ class About():
 
     pygame.display.set_caption('About')
 
+    # Constructor
+    
     def __init__(self, back_mtd):
         self.back_mtd = back_mtd
 
     # looking for the image to load it
     def load_img(self, filename):
-        path = os.path.join('src/img', filename)
+        path = os.path.join('./img', filename)
 
         return pygame.image.load(path).convert_alpha()
 
@@ -39,7 +40,7 @@ class About():
         rect_text.topleft = (x, y)
         surface.blit(text_obj, rect_text)
 
-     # Drawing the button for get back
+     # Drawing the button to go back
     def draw_button(self, text, font, color, surface, x, y, width, height):
 
         # Transform the button on a rect object
@@ -88,6 +89,8 @@ class About():
                 self.WIDTH - font_content.size(line_text.strip())[0]) // 2, y_offset)
             y_offset += font_content.size(line_text.strip())[1]
 
+    # Method to show the menu
+     
     def show_menu(self):
 
         self.WIN.fill(self.BLACK)
@@ -121,14 +124,14 @@ class About():
                        self.WHITE, self.WIN, subtitle_x, 120)
 
         # Drawing the content
-        content = 'Hi! I\'m Bruno, and this is the final project for the \"Object-Oriented Programming\" course.\nIt\'s a video game based on the final project from the live sessions, with some added features.\nThese include crash damage, sounds when crashing, and some gifts or treasures that could help you on your adventure.\nThanks to all my teachers for sharing their knowledge.\nEnjoy!'
+        content = 'Hi! I\'m Bruno, and this is the final project for the \"Object-Oriented Programming\" course.\n A collaborative video game created as final project , with some added features.\nThese include crash damage, sounds when crashing, and some gifts or treasures that could help you on your adventure.\nThanks to all my teachers for sharing their knowledge.\nEnjoy!'
         font_content = pygame.font.Font(None, 30)
         y_offset = max(200, sub_font_title.size(subtext_title)[1] + 120)
 
         self.show_content(content, font_content, y_offset)
 
         ################# Add a link ###############
-        link_title = 'My LinKedin link, just to add something'
+        link_title = 'My LinkedIn link, just to add something'
         link_font = pygame.font.Font(None, 36)
         link_width = link_font.size(link_title)[0]
 
@@ -144,6 +147,7 @@ class About():
                          self.GREY, self.WIN, 20, 20, 50, 50)
         pygame.display.update()
 
+    # Run the program
     def run(self):
         self.show_menu()
 

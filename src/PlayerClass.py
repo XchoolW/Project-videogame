@@ -4,6 +4,7 @@ from ShipClass import Ship
 from BulletClass import Bullet
 import time
 
+# Getting the current directory
 current_dir = os.path.dirname(__file__)
 
 # Constants for the Images
@@ -16,10 +17,10 @@ BULLET_IMAGE = pygame.image.load(os.path.join(
 WIDTH = 800
 HEIGHT = 600
 
-# Creating the class for the player
+# Creating the class for the player ------------------------------------------------
 
 
-class Player(Ship):
+class Player(Ship): # Inherit from Ship class
 
     # Constructor
     def __init__(self, x, y, x_speed, y_speed, health=100):
@@ -45,13 +46,19 @@ class Player(Ship):
     def move(self):
         keys = pygame.key.get_pressed()
 
+        # Moving up
         if (keys[pygame.K_UP] or keys[pygame.K_w]) and (self.y > 0):
             self.y -= self.y_speed
+
+        # Moving down
         elif (keys[pygame.K_DOWN] or keys[pygame.K_s]) and (self.y < HEIGHT - self.ship_img.get_height()-20):
             self.y += self.y_speed
 
+        # Moving right
         if (keys[pygame.K_RIGHT] or keys[pygame.K_d]) and (self.x < WIDTH - self.ship_img.get_width()):
             self.x += self.x_speed
+
+        # Moving left
         elif (keys[pygame.K_LEFT] or keys[pygame.K_a]) and (self.x > 0):
             self.x -= self.x_speed
 
@@ -96,6 +103,8 @@ class Player(Ship):
 
     # Method for fire the proyectiles
     def fire(self, window):
+
+        # Setting the key for shooting -------------------------------------------------
         keys = pygame.key.get_pressed()
 
         # Analyze if the ship has pressed space, has bullets and cooldown is 0

@@ -21,8 +21,9 @@ ENEMY_PURPLE_IMAGE = pygame.image.load(os.path.join(
 WIDTH, HEIGHT = 800, 600
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
+# Build a Enemy class --------------------------------------------------------
 
-class Enemy(Ship):
+class Enemy(Ship): # Inherit from Ship
 
     # List with enemy colors
     COLOR = {
@@ -34,6 +35,7 @@ class Enemy(Ship):
     # Constructor and its parameters
     def __init__(self, speed, x=50, y=50, color='blue', health=100):
         super().__init__(x, y, health)  # Calling the super constructor
+
         self.ship_img = self.COLOR[color]
         self.mask = pygame.mask.from_surface(self.ship_img)
         self.speed = speed
@@ -47,7 +49,7 @@ class Enemy(Ship):
 
         enemies = []
 
-        # Creating the enemies and add it to the enemires list
+        # Creating the enemies and add them to the enemies list
         for i in range(amount):
             enemy = Enemy(
 
@@ -77,4 +79,5 @@ class Enemy(Ship):
             int(self.y - obj.y - 30)
         )
 
+        # This will return the point of the collition
         return self.mask.overlap(obj.mask, (offset))

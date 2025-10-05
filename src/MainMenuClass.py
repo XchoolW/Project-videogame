@@ -7,7 +7,6 @@ pygame.init()
 
 # Create the game menu
 
-
 class MainMenu():
 
     # Constants for colors and screen
@@ -22,11 +21,11 @@ class MainMenu():
     pygame.display.set_caption('Space Invaders')
 
     # Image directory
-    IMG_DIR = 'src/img'
+    IMG_DIR = './img'
 
     # Loading the music
     try:
-        mixer.music.load('src/sounds/background_song.mp3')
+        mixer.music.load('./sounds/background_song.mp3')
     except:
         print('Music cannot be displayed')
         pass
@@ -37,6 +36,8 @@ class MainMenu():
     except:
         pass
 
+    # Constructor -------------------------------------------------------------
+    
     def __init__(self, init_game_mtd, init_score_mtd, init_about_mtd):
         self.init_game_mtd = init_game_mtd
         self.init_score_mtd = init_score_mtd
@@ -63,7 +64,7 @@ class MainMenu():
 
         return rect_text
 
-    # Optios for the main menu
+    # Options for the main menu
     def main_menu(self):
 
         # options on the menu
@@ -80,7 +81,7 @@ class MainMenu():
             background, (self.WIDTH, self.HEIGHT))
 
         # Loading the hybridge logo
-        image = self.load_img('Hybridge.gif')
+        image = self.load_img('hybridge.gif')
         image = pygame.transform.scale(image, (80, 80))
 
         # Menu working
@@ -123,30 +124,34 @@ class MainMenu():
 
                 # Logic for the movement and selecting the options
                 elif event.type == pygame.KEYDOWN:
+                    
+                    # Moving up
                     if event.key == pygame.K_UP:
                         select_option = (select_option - 1) % len(options)
 
+                    # Moving down
                     elif event.key == pygame.K_DOWN:
                         select_option = (select_option + 1) % len(options)
 
+                    # Select option
                     elif event.key == pygame.K_RETURN:
                         option_selected = options[select_option]
                         print(option_selected)
 
                         if (option_selected.lower() == 'play'):
-                            print('play option')
+                            # Test print('play option')
 
                             self.init_game_mtd()
                             pygame.quit()
 
                         elif (option_selected.lower() == 'score'):
-                            print('score option')
+                            # Test print('score option')
 
                             self.init_score_mtd()
                             pygame.quit()
 
                         elif (option_selected.lower() == 'about'):
-                            print('about option')
+                            # Test print('about option')
 
                             self.init_about_mtd()
                             pygame.quit()

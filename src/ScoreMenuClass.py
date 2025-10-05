@@ -4,7 +4,6 @@ import os
 
 # Creating a class for scores
 
-
 class Score():
 
     # Constants for colors
@@ -21,6 +20,7 @@ class Score():
     window = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption('Best score')
 
+    # Constructor
     def __init__(self, back_mtd):
         self.back_mtd = back_mtd
 

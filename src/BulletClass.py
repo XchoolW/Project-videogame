@@ -3,6 +3,8 @@ import pygame
 # Creating the class for bullets
 
 
+# Builiding the Bullet class
+
 class Bullet():
 
     # Constructor
@@ -18,6 +20,7 @@ class Bullet():
     def draw(self, window):
         window.blit(self.img, (self.x, self.y))
 
+    # Method for Bullet's movement
     def move(self, speed):
         self.y += speed
 

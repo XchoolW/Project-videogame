@@ -1,7 +1,8 @@
 
-# Creating a generic class for ships (player and enemys)
+# Creating a generic class for ships (After this, we got layer and enemys)
+
 class Ship():
-    def __init__(self, x, y, health=100):
+    def __init__(self, x, y, health=100): # We're going to set the coordinates and health
         self.x = x
         self.y = y
         self.health = health
@@ -15,6 +16,8 @@ class Ship():
     # Drawing the ships
     def draw(self, window):
         window.blit(self.ship_img, (self.x, self.y))
+
+    # Getting the width and height of the ship object --------------------------------
 
     # Getting the image width
     def get_width(self):
